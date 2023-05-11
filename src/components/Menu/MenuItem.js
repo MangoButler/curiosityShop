@@ -1,6 +1,7 @@
 import React from "react";
-import Button from "../UI/Button/Button";
+
 import classes from './MenuItem.module.css';
+import MenuItemForm from "./MenuItemForm";
 
 const MenuItem = (props) => {
     return(
@@ -11,9 +12,7 @@ const MenuItem = (props) => {
         <p className={classes.price}>{props.price}</p>
         </div>
 
-        <div>
-        <Button>Add to Cart</Button>
-        </div>
+        <MenuItemForm name={props.name} description={props.description} price={props.price} />
     </li>
     );
     

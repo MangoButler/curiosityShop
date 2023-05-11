@@ -1,5 +1,5 @@
-.menu {
-    background-image: url('https://img.freepik.com/free-photo/grunge-vintage-old-paper-background_1373-431.jpg?w=1480&t=st=1683014499~exp=1683015099~hmac=2a3c88ba5db721aee05118b747b11a34da8ee7fdaf7dd9cd75faa2319cf7e103');
+/* .menu {
+    background-image: url('https://images.rawpixel.com/image_1300/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3B4MTAyNTkxNS1pbWFnZS1rd3Z3ZzZwcC5qcGc.jpg');
     background-size: cover;
     background-position: center center;
     border: 2px solid #000;
@@ -8,4 +8,49 @@
     margin: 0 auto 20px;
     max-width: 80%;
     padding: 20px;
+  } */
+
+  .menu {
+    background-image: url('https://images.rawpixel.com/image_1300/cHJpdmF0ZS9sci9pbWFnZXMvd2Vic2l0ZS8yMDIyLTA1L3B4MTAyNTkxNS1pbWFnZS1rd3Z3ZzZwcC5qcGc.jpg');
+    background-size: cover;
+    background-position: center center;
+    border: 2px solid #000;
+    border-radius: 10px;
+    box-shadow: 5px 5px 5px #888888;
+    margin: 0 auto 20px;
+    max-width: 80%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
+  
+  .menu h2 {
+    margin-bottom: 10px;
+    font-size: larger;
+    font-weight: bolder;
+    font-style: oblique;
+    font-family: serif;
+    text-decoration: underline;
+  }
+  
+  .menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .menu li {
+    margin-bottom: 10px;
+  }
+  
+  @media (max-width: 768px) {
+    .menu {
+      padding: 10px;
+    }
+  
+    .menu h2 {
+      font-size: 16px;
+    }
+  }
+  

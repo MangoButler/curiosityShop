@@ -129,7 +129,7 @@ export const drinkItems = [
     price: '1500 coffee beans',
   },
   {
-    id: 'l13',
+    id: 'l17',
     name: 'Empty Room Soju',
     description: 'Infused with the unsettling feeling that you get when you walk down a large corridor alone',
     price: '∮67.50',

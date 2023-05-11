@@ -1,18 +1,30 @@
 .Button {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    color: white;
-    background-color: #FF3333;
-    border: none;
-    border-radius: 25px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
-    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
-  }
-  
-  .Button:hover {
-    transform: translateY(2px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
-  }
-  
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: bold;
+  font-family: serif;
+  color: white;
+  background-color: #4d1601;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.Button:hover {
+  transform: translateY(2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+Button:disabled,
+Button:focus:disabled,
+Button:hover:disabled,
+Button:active:disabled {
+  background-color: #ccc !important;
+  border-color: #ccc !important;
+  color: #666666 !important;
+  cursor: not-allowed !important;
+  transform: none !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}

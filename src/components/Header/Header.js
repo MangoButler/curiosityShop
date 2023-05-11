@@ -1,7 +1,7 @@
 import React from "react";
-import Button from "../UI/Button/Button";
 import classes from './Header.module.css';
-import mainImage from '../images/meals.jpg';
+import mainImage from '../images/olga-antonenko-antique-shop-sketch.jpeg';
+import HeaderCartButton from "./HeaderCartButton";
 
 
 const Header = (props) =>{
@@ -9,7 +9,7 @@ const Header = (props) =>{
         <React.Fragment>
         <header className={classes.header}>
             <h1>Curiosity Shop</h1>
-            <Button>Your Cart</Button>
+            <HeaderCartButton>See Cart</HeaderCartButton>
         </header>
         <img className={classes['main-image']} src={mainImage} alt='Meals'/>
         </React.Fragment>
