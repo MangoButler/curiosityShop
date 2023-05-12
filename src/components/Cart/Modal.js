@@ -15,12 +15,14 @@ const ModalOverlay = (props) => {
   const cartCtx = useContext(cartContext);
   return (
     <Card className={classes.modal}>
+      <div className={classes.modalContent} >
       {cartCtx.currentItems.length > 0 && <Cart onResolve={props.onResolve} />}
       {cartCtx.currentItems.length === 0 && !cartCtx.placedOrder &&<h2>Nothing here yet</h2>}
       {cartCtx.currentItems.length === 0 && !cartCtx.placedOrder &&(
         <Button onClick={props.onResolve}>Go back</Button>
       )}
       {cartCtx.currentItems.length === 0 && cartCtx.placedOrder && <OrderConfirmation onResolve={props.onResolve} />}
+      </div> 
     </Card>
   );
 };

@@ -10,9 +10,13 @@ const MenuItem = (props) => {
         <h3>{props.name}</h3>
         <p className={classes.description}>{props.description}</p>
         <p className={classes.price}>{props.price}</p>
+
+        
         </div>
 
         <MenuItemForm name={props.name} description={props.description} price={props.price} />
+
+       
     </li>
     );
     
