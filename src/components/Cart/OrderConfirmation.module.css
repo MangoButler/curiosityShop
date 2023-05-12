@@ -1,0 +1,25 @@
+.title {
+    font-family: "Goudy Old Style", serif;
+    font-size: 20px;
+    color: #1e1e1e;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  
+  .text {
+    font-family: "Palatino Linotype", "Book Antiqua", serif;
+    font-size: 16px;
+    font-weight: bold;
+    font-style: oblique;
+    color: #333;
+    line-height: 1.5;
+  }
+  
+  q {
+    font-family: "Palatino Linotype", "Book Antiqua", serif;
+    font-size: 12px;
+    font-weight: bold;
+    font-style: oblique;
+    color: #5b5a5a;
+    display: block;
+  }

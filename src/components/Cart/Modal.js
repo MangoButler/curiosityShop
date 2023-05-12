@@ -1,4 +1,4 @@
-import React, { useState, useContext } from "react";
+import React, { useContext } from "react";
 import ReactDOM from "react-dom";
 
 import classes from "./Modal.module.css";
@@ -6,6 +6,7 @@ import Cart from "./Cart";
 import Card from "../UI/Card/Card";
 import cartContext from "../../store/shopping-cart-context";
 import Button from "../UI/Button/Button";
+import OrderConfirmation from "./OrderConfirmation";
 
 const Backdrop = (props) => {
   return <div className={classes.backdrop} onClick={props.onResolve} />;
@@ -19,7 +20,7 @@ const ModalOverlay = (props) => {
       {cartCtx.currentItems.length === 0 && !cartCtx.placedOrder &&(
         <Button onClick={props.onResolve}>Go back</Button>
       )}
-      {cartCtx.currentItems.length === 0 && cartCtx.placedOrder &&<h2>Order placed</h2>}
+      {cartCtx.currentItems.length === 0 && cartCtx.placedOrder && <OrderConfirmation onResolve={props.onResolve} />}
     </Card>
   );
 };

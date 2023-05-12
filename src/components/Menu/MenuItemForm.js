@@ -43,7 +43,7 @@ const MenuItemForm = (props) =>{
             </div>
 
             {/* <Button type='submit'>Add to Cart</Button> */}
-            {enteredAmount == 0 && <Button type='submit' disabled='disabled' >Add to Cart</Button>}
+            {!parseFloat(enteredAmount) && <Button type='submit' disabled='disabled' >Add to Cart</Button>}
             {enteredAmount > 0 && <Button type='submit'>Add to Cart</Button>}
             {enteredAmount < 0 && <Button type='submit'>Remove</Button>}
 
