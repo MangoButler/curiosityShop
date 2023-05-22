@@ -12,7 +12,7 @@
   font-size: small;
   font-weight: bold;
   white-space: nowrap;
-  max-width: 50%;
+  max-width: 100%;
 }
 
 .button span:first-child {
@@ -86,19 +86,22 @@
     left: 0;
     top: 0;
     transform: translate(-33.33%, 0%); */
-    height: 100%;
-    width: calc(33.33%); /* Adjust the width as needed */
-    display: flex;
+    height: auto;
+    width: calc(33.3%); 
+    display: inline;
     justify-content: space-between;
-    padding-left: 5% !important;
+    
     align-items: center;
-    padding: 0;
-    border-radius: 25px;
+    padding: 0 8%;
+    margin-right: 1.25rem;
+
+
+    
      
     /* border-right: none; */
     /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4); */
     /* transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out; */
-    border: 2px solid #333;
+    
     
     
   }

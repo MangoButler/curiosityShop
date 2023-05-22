@@ -146,6 +146,12 @@ export const drinkItems = [
     description: 'Brewed by a man named Piedro. He sometimes steals swings from nearby playgrounds.',
     price: '$29.99',
   },
+  {
+    id: 'l22',
+    name: 'Toilet wine',
+    description: 'Prisoners brewed this in their toilets...an accquired taste...',
+    price: '$1.50',
+  },
 
 
 ];
