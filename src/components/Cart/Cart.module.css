@@ -52,3 +52,10 @@
     margin-bottom: 10px;
   }
 }
+
+@media (max-width: 350px) {
+  .total{
+    flex-direction: row;
+    
+  }
+}
