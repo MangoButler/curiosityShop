@@ -6,22 +6,25 @@ import Cart from "./Cart";
 import Card from "../UI/Card/Card";
 import cartContext from "../../store/shopping-cart-context";
 import Button from "../UI/Button/Button";
-import OrderConfirmation from "./OrderConfirmation";
+import OrderConfirmation from "./OrderForm/OrderConfirmation";
+import OrderForm from "./OrderForm/OrderForm";
 
 const Backdrop = (props) => {
   return <div className={classes.backdrop} onClick={props.onResolve} />;
 };
 const ModalOverlay = (props) => {
   const cartCtx = useContext(cartContext);
+  
   return (
     <Card className={classes.modal}>
       <div className={classes.modalContent} >
-      {cartCtx.currentItems.length > 0 && <Cart onResolve={props.onResolve} />}
+      {cartCtx.currentItems.length > 0 && !cartCtx.placedOrder && <Cart onResolve={props.onResolve} />}
       {cartCtx.currentItems.length === 0 && !cartCtx.placedOrder &&<h2>Nothing here yet</h2>}
       {cartCtx.currentItems.length === 0 && !cartCtx.placedOrder &&(
         <Button onClick={props.onResolve}>Go back</Button>
       )}
-      {cartCtx.currentItems.length === 0 && cartCtx.placedOrder && <OrderConfirmation onResolve={props.onResolve} />}
+      {cartCtx.currentItems.length !== 0 && cartCtx.placedOrder === 1 && <OrderForm onResolve={props.onResolve} />}
+      {cartCtx.currentItems.length === 0 && cartCtx.placedOrder === 2 && <OrderConfirmation onResolve={props.onResolve} />}
       </div> 
     </Card>
   );

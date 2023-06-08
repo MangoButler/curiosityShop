@@ -24,11 +24,11 @@ const MenuItemForm = (props) =>{
         if(inputRef.current.value > 0){
             cartCtx.onAddItem({...props, amount: +inputRef.current.value});
             inputRef.current.value = '';
-            console.log(cartCtx.currentItems);
+            // console.log(cartCtx.currentItems);
         }else if(inputRef.current.value < 0){
             cartCtx.onRemoveItem({...props, amount: +inputRef.current.value});
             inputRef.current.value = '';
-            console.log(cartCtx.currentItems);
+            // console.log(cartCtx.currentItems);
         }
 
     };

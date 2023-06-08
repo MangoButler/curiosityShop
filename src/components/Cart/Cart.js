@@ -9,6 +9,10 @@ const Cart = (props) => {
   const total = cartCtx.currentItems
     .map((i) => i.price.substring(1) * i.amount)
     .reduce((a, b) => a + b, 0);
+  
+  const onToCheckout = () => {
+      cartCtx.setPlacedOrder(1);
+  };  
 
   return (
     <React.Fragment>
@@ -28,9 +32,12 @@ const Cart = (props) => {
       <div className={classes.total}>
         <h2>{Math.floor(total)}$</h2>
         <div className={classes.actions}>
-          <Button className={classes.button} onClick={cartCtx.onPlaceOrder}>
-            Place Order
+            <Button className={classes.button} onClick={onToCheckout}>
+            Visit Checkout
           </Button>
+          {/* <Button className={classes.button} onClick={cartCtx.onPlaceOrder}>
+            Place Order
+          </Button> */}
           <Button className={classes.button} onClick={props.onResolve}>
             Back to Menu
           </Button>

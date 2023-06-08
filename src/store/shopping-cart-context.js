@@ -85,7 +85,7 @@ export const CartContextProvider = (props) => {
 
   const placeOrderHandler = () => {
     dispatchCurrentItems({ type: "ORDER_PLACED" });
-    setPlacedOrder(true);
+    setPlacedOrder(2);
   };
 
   return (

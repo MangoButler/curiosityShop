@@ -35,7 +35,7 @@ const HeaderCartButton = (props) => {
 
 
   const onViewCart = () => {
-    console.log(cartCtx.currentItems.length);
+    // console.log(cartCtx.currentItems.length);
     setViewCart(true);
   };
   const onCloseCart = () => {

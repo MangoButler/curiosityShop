@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../UI/Button/Button";
+import Button from "../../UI/Button/Button";
 import classes from "./OrderConfirmation.module.css";
 
 const OrderConfirmation = (props) => {
