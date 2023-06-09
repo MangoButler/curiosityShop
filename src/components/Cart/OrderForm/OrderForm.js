@@ -47,6 +47,24 @@ const OrderForm = (props) => {
     reset: addressReset,
   } = useInput(isNotEmpty);
 
+  const {
+    value: cityValue,
+    valueIsValid: cityValid,
+    hasError: cityHasError,
+    valueChangeHandler: cityValueChangeHandler,
+    inputBlurHandler: cityBlurrHandler,
+    reset: cityReset,
+  } = useInput(isNotEmpty);
+
+  const {
+    value: countryValue,
+    valueIsValid: countryValid,
+    hasError: countryHasError,
+    valueChangeHandler: countryValueChangeHandler,
+    inputBlurHandler: countryBlurrHandler,
+    reset: countryReset,
+  } = useInput(isNotEmpty);
+
   const firstNameInputClasses = firstNameHasError
     ? `${classes.control} ${classes.invalid}`
     : `${classes.control}`;
@@ -63,14 +81,29 @@ const OrderForm = (props) => {
     ? `${classes.control} ${classes.invalid}`
     : `${classes.control}`;
 
+  const cityInputClasses = cityHasError
+    ? `${classes.control} ${classes.invalid}`
+    : `${classes.control}`;
+
+  const countryInputClasses = countryHasError
+    ? `${classes.control} ${classes.invalid}`
+    : `${classes.control}`;
+
   let formIsValid = false;
 
-  if (firstNameValid && lastNameValid && emailValid && addressValid) {
+  if (
+    firstNameValid &&
+    lastNameValid &&
+    emailValid &&
+    addressValid &&
+    cityValid &&
+    countryValid
+  ) {
     formIsValid = true;
   }
 
   const requestConfig = {
-    url: 'https://react-http-48ff4-default-rtdb.firebaseio.com/orders.jsonl',
+    url: "https://react-http-48ff4-default-rtdb.firebaseio.com/orders.json",
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -80,6 +113,8 @@ const OrderForm = (props) => {
       lastName: lastNameValue,
       email: emailValue,
       address: addressValue,
+      city: cityValue,
+      country: countryValue,
       order: cartCtx.currentItems,
     },
   };
@@ -90,20 +125,25 @@ const OrderForm = (props) => {
       return;
     }
 
-    const response = await sendRequest(requestConfig, (data)=> {return data});
+    const response = await sendRequest(requestConfig, (data) => {
+      return data;
+    });
     console.log(response);
-    if(!response){
-        return;
-    };
+    if (!response) {
+      return;
+    }
     cartCtx.onPlaceOrder();
     firstNameReset();
     lastNameReset();
     emailReset();
     addressReset();
+    cityReset();
+    countryReset();
   };
 
   return (
     <form className={classes.form} onSubmit={formSubmitHandler}>
+        <h2>Personal Details:</h2> 
       <div className={classes.controlGroup}>
         <div className={firstNameInputClasses}>
           <label htmlFor="fname">First Name</label>
@@ -115,7 +155,7 @@ const OrderForm = (props) => {
             onBlur={firstNameBlurrHandler}
           />
           {firstNameHasError && (
-            <p className="error-text">First Name cannot be empty</p>
+            <p className={classes.errorText}>First Name cannot be empty</p>
           )}
         </div>
         <div className={lastNameInputClasses}>
@@ -128,7 +168,7 @@ const OrderForm = (props) => {
             onBlur={lastNameBlurrHandler}
           />
           {lastNameHasError && (
-            <p className="error-text">Last Name cannot be empty</p>
+            <p className={classes.errorText}>Last Name cannot be empty</p>
           )}
         </div>
         <div className={emailInputClasses}>
@@ -140,7 +180,9 @@ const OrderForm = (props) => {
             onChange={emailValueChangeHandler}
             onBlur={emailBlurrHandler}
           />
-          {emailHasError && <p className="error-text">Provide valid email</p>}
+          {emailHasError && (
+            <p className={classes.errorText}>Provide valid email</p>
+          )}
         </div>
         <div className={addressInputClasses}>
           <label htmlFor="name">Address</label>
@@ -152,23 +194,50 @@ const OrderForm = (props) => {
             onBlur={addressBlurrHandler}
           />
           {addressHasError && (
-            <p className="error-text">Provide valid address</p>
+            <p className={classes.errorText}>Provide valid address</p>
           )}
         </div>
+        <div className={classes.controlPair}>
+          <div className={cityInputClasses}>
+            <label htmlFor="name">City</label>
+            <input
+              type="text"
+              id="name"
+              value={cityValue}
+              onChange={cityValueChangeHandler}
+              onBlur={cityBlurrHandler}
+            />
+            {cityHasError && (
+              <p className={classes.errorText}>City not found</p>
+            )}
+          </div>
+          <div className={countryInputClasses}>
+            <label htmlFor="name">Country</label>
+            <input
+              type="text"
+              id="name"
+              value={countryValue}
+              onChange={countryValueChangeHandler}
+              onBlur={countryBlurrHandler}
+            />
+            {countryHasError && (
+              <p className={classes.errorText}>Country not found</p>
+            )}
+          </div>
+        </div>
       </div>
-
+      {error && <p className={classes.errorText}>{error}</p>}
       <div className={classes.actions}>
-        {isLoading && <p>Loading...</p>}
-        {error && <p className={classes.errorText}>{error.message}</p>}
-        
         <button
           type="submit"
-          className={classes.button}
-          disabled={!formIsValid}
+          className={`${classes.button} ${classes.submit}`}
+          disabled={!formIsValid || isLoading}
         >
-          Place Order
+          {!isLoading ? "Place Order" : "Sending..."}
         </button>
-        <button onClick={props.onResolve}>Go back</button>
+        <button onClick={props.onResolve} className={classes.button}>
+          Go back
+        </button>
       </div>
     </form>
   );

@@ -27,7 +27,7 @@ const useRequest = () => {
       return applyData(data);
     } catch (err) {
       setError(err.message || "Something went wrong!");
-      console.log(err.message);
+    //   console.log(error);
     }
 
     setIsLoading(false);

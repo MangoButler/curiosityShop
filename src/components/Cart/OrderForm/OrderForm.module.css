@@ -3,6 +3,9 @@
     height: 19rem;
     overflow: auto;
   }
+  .form h2 {
+    margin-top: 0.5rem;
+  }
   
   .control {
     margin-bottom: 0.5rem;
@@ -18,21 +21,34 @@
     font: inherit;
     border: 1px solid #ccc;
     border-radius: 4px;
-    width: 20rem;
+    width: 80%;
     max-width: 100%;
   }
-  
-  .actions {
+  .controlGroup{
+    margin-bottom: 1rem;
+  }
+  .controlPair {
     display: flex;
-    justify-content: flex-end;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+  
+  .controlPair .control {
+    flex: 1 1 50%;
+    max-width: 40%;
+  }
+  .actions{
+    display: flex;
+    justify-content: space-evenly;
     gap: 1rem;
+    margin-bottom: 0.5rem;
   }
   
   .actions button {
     font: inherit;
-    color: #5a1a01;
+    color: #3a0074;
     cursor: pointer;
-    background-color: transparent;
+    background-color: rgb(186, 183, 183);
     border: none;
     border-radius: 25px;
     padding: 0.5rem 2rem; 
@@ -57,8 +73,19 @@
   .invalid label, .invalid p, .errorText {
     color: #ca3e51;
   }
+  .invalid p, .errorText {
+    margin-top: 0.2rem;
+    font-size: smaller;
+  }
   
   .invalid input {
     border-color: #aa0b20;
     background-color: #ffeff1;
+  }
+
+  @media (max-width: 768px) {
+    .control input {
+      width: 100%;
+      max-width: 100%;
+    }
   }
