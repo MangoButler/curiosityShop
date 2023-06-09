@@ -38,7 +38,7 @@ const MenuItemForm = (props) =>{
     return (
         <form onSubmit={submitHandler} className={classes.form}>
             <div className={classes.inputWrapper}>
-                <input type='number' name="amount" id={props.key} ref={inputRef}  onChange={inputChangeHandler} />
+                <input type='number' name="amount" id={props.key} ref={inputRef}  onChange={inputChangeHandler} step='1' default='1'/>
                 <label htmlFor={props.key}>Select Amount</label>
             </div>
 

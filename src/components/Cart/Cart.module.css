@@ -50,6 +50,7 @@
 @media (max-width: 768px) {
   .actions .button{
     margin-bottom: 10px;
+    max-height:20%;
   }
 }
 
