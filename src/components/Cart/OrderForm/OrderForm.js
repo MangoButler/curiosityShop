@@ -4,6 +4,7 @@ import cartContext from "../../../store/shopping-cart-context";
 import useInput from "../../../hooks/use-input";
 import useRequest from "../../../hooks/use-request";
 import validateEmail from "../../../store/validateEmail";
+import validatePlace from "../../../store/isCity";
 
 const isNotEmpty = (value) => value.trim() !== "";
 
@@ -54,7 +55,7 @@ const OrderForm = (props) => {
     valueChangeHandler: cityValueChangeHandler,
     inputBlurHandler: cityBlurrHandler,
     reset: cityReset,
-  } = useInput(isNotEmpty);
+  } = useInput(validatePlace);
 
   const {
     value: countryValue,
@@ -63,7 +64,7 @@ const OrderForm = (props) => {
     valueChangeHandler: countryValueChangeHandler,
     inputBlurHandler: countryBlurrHandler,
     reset: countryReset,
-  } = useInput(isNotEmpty);
+  } = useInput(validatePlace.bind(null, null));
 
   const firstNameInputClasses = firstNameHasError
     ? `${classes.control} ${classes.invalid}`
@@ -116,6 +117,7 @@ const OrderForm = (props) => {
       city: cityValue,
       country: countryValue,
       order: cartCtx.currentItems,
+      timestamp: new Date().toString()
     },
   };
 
