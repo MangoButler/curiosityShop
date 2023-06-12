@@ -75097,7 +75097,7 @@ function validatePlace(cityName, country = null) {
   };
 
   const lowerCaseCityName = cityName ? cityName.toLowerCase() : null;
-  const lowerCaseCountry = country ? country.toLowerCase() : null;
+  const lowerCaseCountry = country ? country.toLowerCase().replace(/ /g,'') : null;
 
   if (lowerCaseCountry) {
     // Convert the cities keys to lowercase and check if the country exists
