@@ -130,7 +130,7 @@ const OrderForm = (props) => {
     const response = await sendRequest(requestConfig, (data) => {
       return data;
     });
-    console.log(response);
+    // console.log(response);
     if (!response) {
       return;
     }
