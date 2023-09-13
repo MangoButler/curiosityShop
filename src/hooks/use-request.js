@@ -23,6 +23,7 @@ const useRequest = () => {
       }
 
       const data = await response.json();
+      setIsLoading(false);
       return applyData(data);
     } catch (err) {
       setError(err.message || 'Something went wrong!');
