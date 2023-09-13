@@ -30,7 +30,7 @@ function App() {
 
     sendRequest(
       {
-        url: 'https://react-http-48ff4-default-rtdb.firebaseio.com/MealDelivery/foodItems',
+        url: 'https://react-http-48ff4-default-rtdb.firebaseio.com/MealDelivery/foodItems.json',
       },
       transformData.bind(null, setFoods)
     );
